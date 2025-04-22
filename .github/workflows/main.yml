@@ -1,1 +1,18 @@
+name: myTest
+
+on: [push]
+
+jobs:
+  myTest-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install Dependencises
+        run: npm ci
+      - name: Run myTest
+        uses: cypress-io/github-action@v3
 
